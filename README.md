@@ -75,7 +75,7 @@ This repository periodically synchronizes all official Kubeflow components from 
 | Volumes Web Application | applications/volumes-web-app/upstream | [v1.10.0](https://github.com/kubeflow/kubeflow/tree/v1.10.0/components/crud-web-apps/volumes/manifests) | 4m | 226Mi | 0GB |
 | Katib | applications/katib/upstream | [v0.19.0](https://github.com/kubeflow/katib/tree/v0.19.0/manifests/v1beta1) | 13m | 476Mi | 10GB |
 | KServe | applications/kserve/kserve | [v0.16.0](https://github.com/kserve/kserve/releases/tag/v0.16.0/install/v0.16.0) | 600m | 1200Mi | 0GB |
-| KServe Models Web Application | applications/kserve/models-web-app | [v0.15.0](https://github.com/kserve/models-web-app/tree/v0.15.0/config) | 6m | 259Mi  | 0GB |
+| KServe Models Web Application | applications/kserve/models-web-app | [v0.16.0](https://github.com/kserve/models-web-app/tree/v0.16.0/config) | 6m | 259Mi  | 0GB |
 | Kubeflow Pipelines | applications/pipeline/upstream | [2.16.0](https://github.com/kubeflow/pipelines/tree/2.16.0/manifests/kustomize) | 970m | 3552Mi | 35GB |
 | Kubeflow Model Registry | applications/model-registry/upstream | [v0.3.7](https://github.com/kubeflow/model-registry/tree/v0.3.7/manifests/kustomize) | 510m | 2112Mi | 20GB |
 | Spark Operator	|	applications/spark/spark-operator	|	[2.5.0-rc.0](https://github.com/kubeflow/spark-operator/tree/v2.5.0-rc.0) | 9m | 41Mi | 0GB |
@@ -107,6 +107,11 @@ The `example` directory contains an example kustomization for the single command
 - For the specific Kubernetes version per release, consult the [release notes](https://github.com/kubeflow/manifests/releases).
 - Our Kind script below will take care of installing continuously tested Kubernetes, Kustomize and Kubectl versions for you.
 - We use Kind as default but also support Minikube, Rancher, EKS, AKS, and GKE. GKE might need tiny adjustments documented here in this file and OpenShift is also possible.
+
+### ARM64 / aarch64 note
+
+Kubeflow on ARM64/aarch64 may not be fully supported yet because some OCI images might not be available for `linux/arm64`.
+If you hit image pull errors such as “no matching manifest for linux/arm64”, please track/report details in kubeflow/manifests#2745 and take a look at the [Google Summer of Code project for Kubeflow on ARM64](https://www.kubeflow.org/events/upcoming-events/gsoc-2026/#project--end-to-end-arm64-support--validation-on-kubeflow).
 
 ---
 **NOTE**
